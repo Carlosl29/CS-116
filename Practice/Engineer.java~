@@ -1,0 +1,12 @@
+package Client.Services;
+
+import Client.Services.Enums.Jobs;
+public class Engineer extend Worker
+{
+	private double weeklyBenifits;
+	
+	public Engineer(String incomingName, int incomingSS, int incomingYears, Jobs incomingJobs)
+	{
+		super.Worker(incomingName, incomingSS, incomingYear,incomingJobs);
+	}
+}

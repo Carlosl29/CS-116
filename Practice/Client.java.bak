@@ -1,0 +1,46 @@
+//George Koutsogiannakis
+//Example of  classes inheriting from each other
+//This is the Client class that uses the hyerarchical tree  of the 2 classes A,B
+public class Client
+{
+	public static void main(String[] args) 
+	{
+		B b=new B();
+		b.method1();
+		b.d=6;
+		/*The following code is wrong and will produce  compiler error
+		b.rs="some String";
+---------- Java compiler ----------
+Client.java:12: error: s has private access in A
+		b.s="some String";
+		 ^
+1 error
+----------------------------
+
+The reason is because s has been declared private in A
+
+*/
+		System.out.println(b.d);
+		B b1=new B(4,"HELLO", 3.14);
+		int y=b1.method2(10);
+		System.out.println(y);
+	}
+}
+
+
+/*
+---------- Java Interpreter ----------
+Default Constructor of A
+The default constructor of B was executed
+Executed default constructor of C
+method1 of A executed
+6
+Non default constructor of A
+The non default constructor of B was executed
+Non default constructor of C was executed
+method 2 of B was executed
+8
+
+Output completed (0 sec consumed) - Normal Termination
+
+*/

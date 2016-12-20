@@ -1,0 +1,67 @@
+
+//George Koutsogiannakis
+//9/20/08
+import java.util.*;
+public class UseVectors 
+{
+	public static void main(String[] args) 
+	{
+		Vector v=new Vector();
+		VehicleA car1=new VehicleA();
+		VehicleA car2=new VehicleA();
+		v.addElement(car1);
+		v.addElement(car2);
+		System.out.println("The first object out of the vector:"+" "+v.get(0).toString());
+		Object o1=v.elementAt(0);
+		VehicleA veh1=(VehicleA)o1;
+		veh1.setAcceleration(2);
+		veh1.setInitD(5.0);
+		veh1.setInitV(2.0);
+		veh1.setTime(1);
+		veh1.calculateV();
+		veh1.calculateD();
+		
+		System.out.println("The first object at index 0 out of the vector after we set its initial distance and initial velocity"+" "+v.get(0).toString());
+		
+		
+		VehicleA v1=(VehicleA)v.get(1);
+			v1.setAcceleration(3.0);
+			v1.setTime(2);
+			v1.calculateV();
+			v1.calculateD();
+			
+		System.out.println("The second object at index 1 out of the vector after we set its initial distance and initial velocity"+" "+v.get(1).toString());	
+		
+		//Now lat us exchage positions of teh two objects within teh vector
+		v.set(0,v1);
+		v.set(1,veh1);
+       // Add a new object in the vector index 2
+
+	  v.addElement(new VehicleA());
+	 //iterate throughteh vector
+
+	 for (int j=0; j<v.size(); j++)
+	 {
+
+		  System.out.println("Object at index"+" "+j+"is"+" "+v.get(j).toString());
+	 }
+
+	 
+	}
+}
+
+//OUTPUT
+/*
+---------- Java Interpreter ----------
+The first object out of the vector: The vehicle ID is: 0 The name of the vehicle is:   The initial velocity is 0.0 The initial distance is 0.0 The final velocity is: 0.0m/sec The final distance is: 0.0m
+The first object at index 0 out of the vector after we set its initial distance and initial velocity The vehicle ID is: 0 The name of the vehicle is:   The initial velocity is 2.0 The initial distance is 5.0 The final velocity is: 4.0m/sec The final distance is: 8.0m
+The second object at index 1 out of the vector after we set its initial distance and initial velocity The vehicle ID is: 0 The name of the vehicle is:   The initial velocity is 0.0 The initial distance is 0.0 The final velocity is: 6.0m/sec The final distance is: 6.0m
+Object at index 0is The vehicle ID is: 0 The name of the vehicle is:   The initial velocity is 0.0 The initial distance is 0.0 The final velocity is: 6.0m/sec The final distance is: 6.0m
+Object at index 1is The vehicle ID is: 0 The name of the vehicle is:   The initial velocity is 2.0 The initial distance is 5.0 The final velocity is: 4.0m/sec The final distance is: 8.0m
+Object at index 2is The vehicle ID is: 0 The name of the vehicle is:   The initial velocity is 0.0 The initial distance is 0.0 The final velocity is: 0.0m/sec The final distance is: 0.0m
+
+Output completed (0 sec consumed) - Normal Termination
+
+
+
+*/
