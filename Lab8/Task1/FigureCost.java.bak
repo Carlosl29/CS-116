@@ -1,0 +1,135 @@
+import java.util.*;
+import java.io.*;
+public class FigureCost
+{
+	public static void main(String[] args) 
+	{
+		
+		ArrayList<Figure> list=new ArrayList<Figure>();
+		
+		Scanner scan1=new Scanner(System.in);
+		System.out.println("Please enter the shape the length(or radius) and the asked value separated by space or type done");
+		String line=scan1.nextLine();
+		while(!line.equals("done"))
+		{
+			StringTokenizer strtok1=new StringTokenizer(line);
+			String sha=strtok1.nextToken();
+			String length=strtok1.nextToken();
+			double len=Double.parseDouble(length);
+			String ask=strtok1.nextToken();
+			if(sha.equals("cube"))
+			{
+				Cube cube=new Cube(sha, len, ask);
+				list.add(cube);
+			}
+			else if(sha.equals("sphere"))
+			{
+				Sphere sphere=new Sphere(sha,len,ask);
+				list.add(sphere);
+			}
+			System.out.println("Please enter the shape the length(or radius) and the asked (area or volume) separated by space or type done");
+			line=scan1.nextLine();
+		}
+		System.out.println(list.size());
+		
+		ArrayList<String> costslist=new ArrayList<String>();
+		OutputStreamWriter filestream;
+		FileOutputStream file;
+		String filename="output.txt ";
+        try
+        {
+        	 file = new FileOutputStream(filename);
+			  filestream= new OutputStreamWriter(new BufferedOutputStream(file));
+       
+					for(int i=0; i<list.size(); i++)
+					{
+					 
+					   try
+					   {
+							
+							System.out.println(i);
+							 Figure fig=list.get(i);
+							
+							 costslist=fig.costToDraw();
+							 System.out.println("Calculating the cost for shape object:"+" "+list.get(i).toString());
+							 filestream.write("Calculating the cost for shape object:"+" "+list.get(i).toString());
+							 filestream.write("\n");
+							 
+								
+					   }
+					   catch (TooLargeCostException tlc)
+					   {
+							System.out.println(tlc.getMessage());
+					   
+					   }
+						for(int j=0; j<costslist.size(); j++)
+						{
+								System.out.println(costslist.get(j));
+								filestream.write(costslist.get(j));
+								filestream.write("\n");
+						}
+					}//end of for loop
+				filestream.flush();
+				file.close();
+			}
+		   catch(IOException ioe)
+		   {
+
+				System.out.println(ioe.getMessage());
+		   }
+
+		   System.out.println("Type readfile if you want to have teh text file read and displayed or type no if you want the rogram terminated");
+			   Scanner scan2=new Scanner(System.in);
+		   String str=scan2.next();
+		   if(str.equals("readfile")
+		   {
+			   try
+			   {
+						FileInputStream file1=new FileInputStream(filename);
+						BufferedReader filereader1=new BufferedReader(new InputStreamReader(file1));         
+						int  index=0;
+						int count=0;
+				
+						String reading=" ";
+				
+				
+						while((reading=filereader1.readLine())!=null) 
+						{
+					
+				 
+								System.out.println(reading);
+	
+					
+					
+							}
+				
+						file1.close();
+						filereader1.close();
+			}//   end of try
+			catch(FileNotFoundException fnf)
+			{
+				System.out.println("The file was not found");
+			}
+			catch(IOException ioe)
+			{
+					System.out.println(ioe.toString()); 
+			}
+			
+		}//end of if
+		else
+		    System.out.println("The program will exit without reading the file");
+
+		   
+                 
+				
+
+		   
+		
+		
+		
+		
+		
+	
+
+	}//end of main method
+}
