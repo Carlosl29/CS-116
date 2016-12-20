@@ -1,0 +1,7 @@
+package Client.Services.Enum.Help;
+
+public class UtilImpl extends UtilitysCosts implements UtilityCostsInterface 
+{
+	super.getutilcostsforallobjects();
+	
+}
