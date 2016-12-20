@@ -1,0 +1,12 @@
+package Charges;
+
+public class pointOnPlot
+{
+	int x;
+	int y;
+	public pointOnPlot()
+	{
+		x = 0;
+		y = 0;
+	}
+}

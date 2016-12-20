@@ -1,0 +1,42 @@
+								Final Project:
+							--------------------
+-Calculate Electric field at point of interest based on position of point charges
+
+Steps:
+----------
+Input text file:
+Q:2,-1,-0.00000003
+Q:2,-3,+0.00000003
+P:P1,0,-2
+
+1.) Read in data from text file with data in it
+	a.) Data consist of first a charge (Q)
+		1.)First token starts after the (:)
+		2.)First token is x-coordinate
+		3.)Second token is y-coordinate
+		4.)Third token is charge amount
+	b.) Then followed by a second charge(Q)
+		1.)Data starts after (:)
+		2.)First token is x
+		3.)Second token is y
+		4.)Third token is charge amount
+	c.) The third line is a point of interest(P)
+		1.)Data starts after (:)
+		2.)First token is name of point
+		3.)Second token is x
+		4.)Third token is y
+2.)
+
+-----------------------------------------
+Required files:
+1.) 	1 abstract super class -check
+4.) 	2 sub classes - check
+2.) 	1 class that is serializable, and produce serialized objects - check
+3.) 	1 interface with 3 abstract methods - check
+5.) 	1 custom exception - check
+6.) 	1 class that represents xy cordinates - check
+7.) 	1 class that is electric fields - check
+8.) 	1 class with main method - check
+9.) 	Must read text file with input data
+10.)	Serialized objects are saved in binary coded file, one line is one object - check
+11.) 	When text file is read back, objects are typecast, and content is displayed

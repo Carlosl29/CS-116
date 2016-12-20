@@ -1,0 +1,2 @@
+package Client.Services;
+public enum BillsType{SCHOOL, REASTURANT, CLOTHING, OTHER};
