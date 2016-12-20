@@ -1,0 +1,2 @@
+package Carlos.Lopez;
+public enum MaterialCategories{AluminiumBased, Metal, Cellulose, Glass};

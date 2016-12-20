@@ -1,0 +1,48 @@
+package Carlos;
+
+import Carlos.Lopez.MaterialCategories;
+import Carlos.Lopez.Rod;
+import Carlos.Lopez.ReadData;
+import java.io.File;
+import java.util.Vector;
+
+public class RodClient
+{
+	public static void main(String[] args)
+	{
+		ReadData rd = new ReadData();
+		Vector unsortedV = new Vector();
+		unsortedV = rd.vectorData(args[0]);
+		Vector sortedV = new Vector();
+		sortedV = rd.sortVector(unsortedV);
+		for(int i = 0; i < sortedV.size(); i++)
+		{
+			Object o1 = sortedV.get(i);
+			Rod aRod = (Rod)o1;
+			
+			System.out.println(aRod.toString());
+		}
+		int index;
+		index = rd.searchVector(sortedV, 89);
+		if(index != -1)
+		{
+			System.out.println("Search inquiry found\n");
+			System.out.println(sortedV(index).toString());
+		}
+		else
+		{
+			System.out.println("The search inquiry was not found.");
+		}
+		
+		index = rd.searchVector(sortedV, 156);
+		if(index != -1)
+		{
+			System.out.println("Search inquiry found\n");
+			System.out.println(sortedV(index).toString());
+		}
+		else
+		{
+			System.out.println("The search inquiry was not found.");
+		}
+	}
+}

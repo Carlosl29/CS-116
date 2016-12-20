@@ -1,0 +1,164 @@
+//George Koutsogiannakis
+package main;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+import java.io.File;
+import java.io.IOException;
+import java.util.Vector;
+import java.util.ArrayList;
+
+//enter import statements for other needed classes
+
+public class AutoClient
+{
+	public static void main(String[] args) 
+	{
+		//Add code as you decide that itis required
+		
+		System.out.println("-------------FIRST OUTPUT ----------------");
+		
+		// ADD CODE
+		// transfer objects from array to array list
+		//Get the Store information so that the AutoStore instance variable reference of Auto can be set to a specific AutoStore object 
+
+		//Display contents of array list using the new for loop. Display the id of each Auto object, the sale price a sdefined in the AutoStore class and teh status (is it sold?-right now none is sold)
+		
+		System.out.println("-------------SECOND OUTPUT----------------");
+	
+		// ADD CODE
+		//invoke the method for the triple array an dformat the display to look as table provided in eth document/
+		
+		System.out.println("-------------THIRD OUTPUT----------------");
+	     // ADD CODE
+		 //Repeat the  for loop through the array list but this time the status for each auto should had been changed to slod.
+		 //AND THE ARRAY LIST IS SORTED BY ACCELERATION.
+	}
+	
+
+	///////////////END OF MAIN METHOD //////////////////////////////////////////
+
+	public Auto[] carData()
+	{
+		
+		Auto [] veharray=null;
+		//double[] varray=null;
+		//double[] darray=null;
+		//double[] farray=null;
+		int count=0;
+		try
+		{
+			File file =new File("data.txt");
+			Scanner scan=new Scanner(file);
+			CarType vehe=null;
+			while(scan.hasNextLine())
+			{
+				scan.nextLine();
+				count++;
+			}
+
+			veharray=new Auto[count];
+			//varray=new double[count];
+			//darray=new double[count];
+			//farray=new double[count];
+			Scanner scan1=new Scanner(file);
+			int index=0;
+			while(scan1.hasNextLine())
+			{
+				String line=scan1.nextLine();
+				StringTokenizer strtok=new StringTokenizer(line,"#");
+				String tok1=strtok.nextToken();
+				
+				double a=Double.parseDouble(tok1);
+				String tok2=strtok.nextToken();
+
+				int t=Integer.parseInt(tok2);
+				String tok3=strtok.nextToken();
+
+				String tok4=strtok.nextToken();
+
+				if(tok4.equals("Type1"))
+				{
+					
+					vehe=CarType.Type1;
+				}
+				else if(tok4.equals("Type2"))
+				{
+					
+					vehe=CarType.Type2;
+				}
+				else if(tok4.equals("Type3"))
+				{
+				   vehe=CarType.Type3;
+				}
+				else if(tok4.equals("Type4"))
+				{
+					vehe=CarType.Type4;
+				}
+
+				//advance the tokenizer two more times but disregard teh data because they are not used in Auto class
+
+				Auto v=new Auto(a,t,tok3,vehe);
+				veharray[index]=v;
+				
+				index++;
+			}
+		}//end of try
+		catch(IOException ioe)
+		{
+		   System.out.println("Something is wrong");
+		}
+		return veharray;
+	}
+
+	public static AutoStore[] storeData()
+	{
+		AutoStore[] dealarray=null;
+		Stores d=null;
+		int count=0;
+		try
+		{
+			File file =new File("data.txt");
+			Scanner scan=new Scanner(file);
+			CarType vehe=null;
+			while(scan.hasNextLine())
+			{
+				scan.nextLine();
+				count++;
+			}
+
+			dealarray=new AutoStore[count];
+			
+			Scanner scan1=new Scanner(file);
+			int index=0;
+			while(scan1.hasNextLine())
+			{
+				//add code to capture the required data to create AutoStore objects and save them in an array.
+			}
+		}
+		catch(IOException ioe)
+		{
+		   System.out.println("Something is wrong");
+		}
+		
+		
+		return dealarray;
+	}
+
+	
+	}
+
+	public ArrayList<Auto> sortAutoList(ArrayList<Auto> ald)
+	{
+		//ADD CODE TO SORT AN ARRAY LIST OF AUTO OBJECTS ACCOPRDING TO THE ACCELERATION AND RETURN THE SORTED ARRAY LIST OBJECT
+		// MAKE SURE THAT THE ARGUMENT ARRAY LIST HAS FIRST BEEN TRANSFERRED TO A NEW ARRAY LIST OBJECT.
+	}
+
+	
+
+	public double[][][] storeSales(ArrayList<Auto> al)
+	{
+
+
+		// ADD CODE
+	}
+}
