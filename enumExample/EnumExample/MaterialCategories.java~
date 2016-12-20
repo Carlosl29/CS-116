@@ -1,0 +1,3 @@
+package Carlos.Lopez;
+
+public enum MaterialChanges { AluminiumBased, Metal, Cellulose, Glass};
