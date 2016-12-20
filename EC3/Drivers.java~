@@ -1,0 +1,105 @@
+//George Koutsogiannakis
+package Driverclass1.Driverclass2;
+
+import Driverclass1.Driverclass2.DriverType;
+public class Drivers
+{
+	
+	String name=" ";
+	int age=0;
+	int license=0;
+	double years=0.0;
+	static int id=0;
+	int presentID=0;
+	DriverType drvTyp = null;
+	
+
+	public Drivers()
+	{
+		id++;
+		presentID=id;
+		name="No name";
+		age=16;
+		license=11111;
+		years=0.5;
+		this.drvTyp = DriverType.None;
+	}
+
+	public Drivers(String n, int a, int l, double y, DriverType dT)
+	{
+		id++;
+		presentID=id;
+		name=n;
+		age=a;
+		license=l;
+		years=y;
+		drvTyp = dT;
+	}
+
+	public String getName()
+	{
+		return name;
+	}
+
+	public int getAge()
+	{
+		return age;
+	}
+	public int getLicenses()
+	{
+		return license;
+	}
+
+	public double getYears()
+	{
+		return years;
+	}
+	public DriverType getDriverType()
+	{
+		return drvTyp;
+	}
+
+	public void setName(String na)
+	{
+		name=na;
+	}
+
+	public void setAge(int ag)
+	{
+		age=ag;
+	}
+	public void setLicenses(int li)
+	{
+		license=li;
+	}
+
+	public void setYears(double ye)
+	{
+		years=ye;
+	}
+	
+	public void setDriverType(DriverType newDT)
+	{
+		this.drvTyp = newDT;
+	}
+	public String toString()
+	{
+		String out="The name of the driver is:"+" "+name+"\n"+"The age is:"+" "+age+"\n"+"The license number is:"+"\n"+license+"\n"+"The years of driving is:"+""+years + " The type of driver is: " + drvTyp;
+		return out;
+	}
+
+	public boolean equals(Drivers dr)
+	{
+		if(this.getName().equals(dr.getName())&&this.getLicenses()==dr.getLicenses())
+			if(this.getDriverType().equals(dr.getDriverType()))
+				return true;
+			else
+				return false;
+		else
+			return false;
+	}
+
+	
+
+
+}
